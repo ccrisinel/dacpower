@@ -19,8 +19,8 @@ class AptinexDAC(object):
             data[0] = 0x60 #EEPROM
         else:
             data[0] = 0x40
-            data[1] = (value >> 4) & 0xFF
-            data[2] = (value << 4) & 0xFF
+        data[1] = (value >> 4) & 0xFF
+        data[2] = (value << 4) & 0xFF
         ioctl(self._file.fileno(), 0x0703, self._addr & 0x7F)
         self._file.write(data)
 
