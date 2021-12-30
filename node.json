@@ -1,0 +1,204 @@
+[
+    {
+        "id": "0dabca5e7ff6d591",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "2be4262b5a4a3cd0",
+        "type": "inject",
+        "z": "0dabca5e7ff6d591",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "stovekw",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 200,
+        "y": 200,
+        "wires": [
+            [
+                "2caa3c5a39fe5319"
+            ]
+        ]
+    },
+    {
+        "id": "2caa3c5a39fe5319",
+        "type": "mqtt out",
+        "z": "0dabca5e7ff6d591",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "99542b2c20a83815",
+        "x": 370,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "a00a54d968b6a3a1",
+        "type": "ui_slider",
+        "z": "0dabca5e7ff6d591",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "group": "a079417ad1ac1378",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "stovekw",
+        "topicType": "str",
+        "min": "2",
+        "max": 10,
+        "step": "0.1",
+        "x": 180,
+        "y": 300,
+        "wires": [
+            [
+                "2caa3c5a39fe5319",
+                "80e811591ed4f105",
+                "1eb85c40a662b99c"
+            ]
+        ]
+    },
+    {
+        "id": "80e811591ed4f105",
+        "type": "debug",
+        "z": "0dabca5e7ff6d591",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 330,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "1eb85c40a662b99c",
+        "type": "ui_gauge",
+        "z": "0dabca5e7ff6d591",
+        "name": "",
+        "group": "a079417ad1ac1378",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Puissance",
+        "label": "kW",
+        "format": "{{value}}",
+        "min": "2",
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 400,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "4e39ce143780b262",
+        "type": "ui_switch",
+        "z": "0dabca5e7ff6d591",
+        "name": "",
+        "label": "switch",
+        "tooltip": "",
+        "group": "a079417ad1ac1378",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "stoveonoff",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "1",
+        "onvalueType": "num",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "0",
+        "offvalueType": "num",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "x": 150,
+        "y": 240,
+        "wires": [
+            [
+                "2caa3c5a39fe5319"
+            ]
+        ]
+    },
+    {
+        "id": "99542b2c20a83815",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "10.10.219.109",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "protocolVersion": "5",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": "",
+        "credentials": {}
+    },
+    {
+        "id": "a079417ad1ac1378",
+        "type": "ui_group",
+        "name": "Poêle",
+        "tab": "5e33b8c3a52fd1b1",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "5e33b8c3a52fd1b1",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
